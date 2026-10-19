@@ -36,7 +36,7 @@
   - [3.1 High-Concurrency Matchmaking Engine (Redis Lua Scripts)](#31-high-concurrency-matchmaking-engine-redis-lua-scripts)
   - [3.2 Cross-Platform WebRTC Signaling & NAT Traversal](#32-cross-platform-webrtc-signaling--nat-traversal)
   - [3.3 Mutual Video Consent Handshake (Privacy by Default)](#33-mutual-video-consent-handshake-privacy-by-default)
-  - [3.4 Successive Discovery Flow (Azar-Style NEXT Session Engine)](#34-successive-discovery-flow-azar-style-next-session-engine)
+  - [3.4 Continuous Successive Discovery Flow (Seamless NEXT Session Engine)](#34-continuous-successive-discovery-flow-seamless-next-session-engine)
   - [3.5 Event-Driven Architecture & Ephemeral Storage (RabbitMQ & MinIO)](#35-event-driven-architecture--ephemeral-storage-rabbitmq--minio)
   - [3.6 Polyglot Microservices: Python Trust & Safety](#36-polyglot-microservices-python-trust--safety)
 - [4. Production Infrastructure & DevOps](#4-production-infrastructure--devops)
@@ -51,7 +51,7 @@
 
 ### Key Pillars:
 1. **Voice-First by Default**: Every random match initiates as encrypted, voice-only audio. Cameras are physically deactivated until both participants complete a mutual, two-way consent handshake.
-2. **Successive Discovery (`MATCH -> TALK -> NEXT`)**: Inspired by the rapid discovery pattern of platforms like Azar, users can transition immediately between partners without returning to the home screen or reloading the DOM.
+2. **Continuous Successive Discovery (`MATCH -> TALK -> NEXT`)**: Users can transition immediately between partners without returning to the home screen or reloading the DOM.
 3. **Verified Campus Community Pools**: Multi-tenant queue isolation allows verified university students to match exclusively within their university domain via institutional email verification (`.edu`, `.ac.in`).
 4. **Zero-Leak Ephemerality**: Chat messages and temporary media expire automatically through asynchronous queue shredders and background cron eviction workers.
 
@@ -174,7 +174,7 @@ sequenceDiagram
     Note over UserA,UserB: Both clients activate local camera tracks & render video surface
 ```
 
-### 3.4 Successive Discovery Flow (Azar-Style NEXT Session Engine)
+### 3.4 Continuous Successive Discovery Flow (Seamless NEXT Session Engine)
 In standard calling apps, ending a call forces a redirection back to a dashboard. In Strangle, clicking **NEXT** achieves instant discovery continuity:
 1. **In-Flight Click Guard**: Disables the NEXT button immediately (`isNextInFlightRef`) to prevent duplicate requests.
 2. **Session Cleanup**: Emits a `MATCH_LEAVE` event, closes the active `RTCPeerConnection`, stops local hardware audio/video tracks, and clears the Redis session lock.
