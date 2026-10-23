@@ -249,7 +249,6 @@ flowchart LR
 ## 6. Author & Contact
 
 **Jay Singh**  
-*Founder & Lead Backend Engineer*  
 - 🌐 **Live Website**: [strangle.in](https://strangle.in)  
 - 💼 **LinkedIn**: [linkedin.com/in/jay-singh-raghuvanshi](https://www.linkedin.com/in/jay-singh-raghuvanshi)  
 - 🐙 **GitHub**: [github.com/jerryRaghuvanshi](https://github.com/jerryRaghuvanshi)  
